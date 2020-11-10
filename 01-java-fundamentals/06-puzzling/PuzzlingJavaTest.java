@@ -1,14 +1,13 @@
-public class PuzzleJavaTest {
+public class PuzzlingJavaTest {
     public static void main(String[] args){
-        PuzzleJava pJ = new PuzzleJava();
+        PuzzlingJava pJ = new PuzzlingJava();
 
         //print values, sum values and new array for values greater than 10
-        int[] arraySum = new int[] {3,5,1,2,7,9,8,13,25,32};
-        pJ.sumOfNumbers(arraySum);
+        pJ.sumOfNumbers();
 
 
         //Shuffle array names
-
+        pJ.shuffleNames();
 
 
         //alphabet array
@@ -33,4 +32,5 @@ public class PuzzleJavaTest {
 
 
     }
+
 }
