@@ -1,0 +1,23 @@
+@charset "ISO-8859-1";
+*{
+	margin: 0;
+	padding: 0;
+	
+}
+
+.span{
+	display: block;
+	color: red;
+	font-weight: bold;
+}
+
+form{
+	margin: 50px;
+	padding: 50px;
+	display: block;
+}
+
+button{
+	display: block;
+	margin: 20px 30px;
+}

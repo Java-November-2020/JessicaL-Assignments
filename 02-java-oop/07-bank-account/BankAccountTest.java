@@ -3,6 +3,8 @@ public class BankAccountTest {
         BankAccount myAccount = new BankAccount();
 
         myAccount.makeDeposit(36.95, "Checking");
+        myAccount.totalDeposits();
+        
         myAccount.makeDeposit(25.00, "Savings");
         myAccount.totalDeposits();
         
