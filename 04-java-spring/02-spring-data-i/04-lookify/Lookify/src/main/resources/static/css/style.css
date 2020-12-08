@@ -1,0 +1,16 @@
+@charset "ISO-8859-1";
+
+.flexin{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 10em;
+}
+nav * {
+	display: inline-block;
+}
+form span {
+	display: block;
+	font-weight: bold;
+	color: red;
+}
