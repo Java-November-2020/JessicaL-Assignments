@@ -1,4 +1,4 @@
-package com.MissJEnterprises.ProductsAndCategories.models;
+package com.MissJEnterprises.DojoOverflow.models;
 
 import java.util.Date;
 
@@ -10,67 +10,63 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PostPersist;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="associations")
-public class Association {
+@Table(name="answers")
+public class Answer {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	private String answer;
 	@Column(updatable=false)
 	private Date createdAt;
 	private Date updatedAt;
-	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="product_id")
-	private Product product;
+	@JoinColumn(name="question_id")
+	private Question question;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="category_id")
-	private Category category;
-
-	public Association() {
-	
+	public Answer() {
+		
 	}
-
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	public String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
 	public Date getCreatedAt() {
 		return createdAt;
 	}
-
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
-
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-
-	public Product getProduct() {
-		return product;
+	public Question getQuestion() {
+		return question;
 	}
-
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setQuestion(Question question) {
+		this.question = question;
 	}
-
-	public Category getCategory() {
-		return category;
+	@PrePersist
+	protected void onCreate() {
+		this.createdAt = new Date();
 	}
-
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
+	@PostPersist
+	protected void onUpdate() {
+		this.updatedAt = new Date();
 	}
 }
